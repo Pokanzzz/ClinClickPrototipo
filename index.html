@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ClinClik</title>
+    <title>ClinClick</title>
     
-    <!-- Font Awesome para ícones de email e senha -->
+    <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -91,17 +91,15 @@
             justify-content: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             animation: pulse 2s infinite;
-            overflow: hidden; /* Garante que a imagem fique dentro do círculo */
+            overflow: hidden;
         }
 
-        /* ⚠️⚠️⚠️ IMAGEM DO LOGO - COLOQUE SUA FOTO AQUI ⚠️⚠️⚠️ */
         .logo-icon img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ajusta a imagem para cobrir o círculo */
+            object-fit: cover;
         }
 
-        /* Fallback: se não carregar a imagem, mostra o emoji */
         .logo-fallback {
             font-size: 30px;
             display: none;
@@ -149,12 +147,12 @@
         }
 
         /* ======================== */
-        /* BENEFÍCIOS COM ÍCONES    */
+        /* BENEFÍCIOS               */
         /* ======================== */
         .benefits-strip {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             padding: 16px 20px;
             background: #f8faff;
             border-bottom: 1px solid #eef2ff;
@@ -170,7 +168,6 @@
             font-weight: 500;
         }
 
-        /* ⚠️⚠️⚠️ ÍCONES DOS BENEFÍCIOS - TROQUE PELAS CLASSES DO FONT AWESOME ⚠️⚠️⚠️ */
         .benefit-item i {
             font-size: 16px;
             color: #1a73e8;
@@ -237,7 +234,6 @@
             align-items: center;
         }
 
-        /* Ícones Font Awesome nos campos */
         .input-icon {
             position: absolute;
             left: 14px;
@@ -341,64 +337,6 @@
             box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
         }
 
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            color: #aaa;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e8e8e8;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 22px;
-        }
-
-        .btn-social {
-            flex: 1;
-            padding: 14px 10px;
-            border: 2px solid #e8ecf4;
-            border-radius: 14px;
-            background: white;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: #333;
-            transition: all 0.2s;
-        }
-
-        .btn-social:active {
-            background: #f5f7fa;
-            border-color: #1a73e8;
-            transform: scale(0.97);
-        }
-
-        /* ⚠️⚠️⚠️ ÍCONES GOOGLE E APPLE ⚠️⚠️⚠️ */
-        .btn-social.google i {
-            color: #4285f4;
-            font-size: 18px;
-        }
-
-        .btn-social.apple i {
-            color: #000;
-            font-size: 18px;
-        }
-
         .create-account {
             text-align: center;
             font-size: 14px;
@@ -466,38 +404,17 @@
                 transform: translateY(-2px);
                 box-shadow: 0 8px 25px rgba(26, 115, 232, 0.35);
             }
-
-            .btn-social:hover {
-                background: #f5f7fa;
-                border-color: #1a73e8;
-                transform: translateY(-2px);
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ==================== -->
-    <!-- CONTAINER PRINCIPAL  -->
-    <!-- ==================== -->
     <div class="login-container">
 
-        <!-- ======================== -->
-        <!-- HEADER COM LOGO E TEXTO  -->
-        <!-- ======================== -->
+        <!-- HEADER -->
         <div class="login-header">
             <div class="logo-wrapper">
                 
-                <!-- 
-                ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-                IMAGEM DO LOGO - COLOQUE O NOME DO SEU ARQUIVO AQUI
-                ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-                
-                OPÇÕES:
-                1. Imagem local: src="imagens/logo.png"
-                2. URL do GitHub: src="https://SEU_USUARIO.github.io/repositorio/imagens/logo.png"
-                3. Link externo: src="https://exemplo.com/imagem.jpg"
-                -->
                 <div class="logo-icon">
                     <img 
                         src="logoprincipal.png" 
@@ -508,59 +425,36 @@
                 </div>
                 
                 <div class="logo-text">
-                    <!-- ⚠️⚠️⚠️ NOME DA CLÍNICA - TROQUE AQUI ⚠️⚠️⚠️ -->
                     <h1>ClinClick</h1>
                     <p>Agendamentos</p>
                 </div>
             </div>
-            <h2> Seja Bem-vindo!</h2>
+            <h2>Seja Bem-vindo!</h2>
             <p class="subtitle">Faça login para agendar consultas</p>
         </div>
 
-        <!-- ======================== -->
-        <!-- BENEFÍCIOS              -->
-        <!-- ======================== -->
+        <!-- BENEFÍCIOS -->
         <div class="benefits-strip">
-            
-            <!-- 
-            ⚠️⚠️⚠️ ÍCONES DOS BENEFÍCIOS - TROQUE AQUI ⚠️⚠️⚠️
-            Use classes do Font Awesome: https://fontawesome.com/icons
-            -->
             <div class="benefit-item">
                 <i class="fas fa-calendar-check"></i> Agendamentos
             </div>
             <div class="benefit-item">
                 <i class="fas fa-user-md"></i> Especialistas
             </div>
-            <div class="benefit-item">
-                <i class="fas fa-laptop-medical"></i> Telemedicina
-            </div>
-            
         </div>
 
-        <!-- ======================== -->
-        <!-- FORMULÁRIO DE LOGIN      -->
-        <!-- ======================== -->
+        <!-- FORMULÁRIO -->
         <div class="login-form">
             
-            <!-- Mensagem de erro/sucesso -->
             <div class="message" id="messageBox"></div>
 
             <form id="loginForm" onsubmit="handleLogin(event)">
                 
-                <!-- ==================== -->
-                <!-- CAMPO DE E-MAIL      -->
-                <!-- ==================== -->
+                <!-- EMAIL -->
                 <div class="form-group">
                     <label>E-mail</label>
                     <div class="input-wrapper">
-                        
-                        <!-- 
-                        ⚠️⚠️⚠️ ÍCONE DE EMAIL - TROQUE A CLASSE AQUI ⚠️⚠️⚠️
-                        Opções: fa-envelope, fa-at, fa-inbox
-                        -->
                         <i class="fas fa-envelope input-icon"></i>
-                        
                         <input 
                             type="email" 
                             id="email" 
@@ -572,19 +466,11 @@
                     </div>
                 </div>
 
-                <!-- ==================== -->
-                <!-- CAMPO DE SENHA       -->
-                <!-- ==================== -->
+                <!-- SENHA -->
                 <div class="form-group">
                     <label>Senha</label>
                     <div class="input-wrapper">
-                        
-                        <!-- 
-                        ⚠️⚠️⚠️ ÍCONE DE SENHA - TROQUE A CLASSE AQUI ⚠️⚠️⚠️
-                        Opções: fa-lock, fa-key, fa-shield-alt
-                        -->
                         <i class="fas fa-lock input-icon"></i>
-                        
                         <input 
                             type="password" 
                             id="password" 
@@ -592,20 +478,13 @@
                             required 
                             autocomplete="current-password"
                         >
-                        
-                        <!-- 
-                        ⚠️⚠️⚠️ BOTÃO MOSTRAR/OCULTAR SENHA ⚠️⚠️⚠️
-                        -->
                         <button type="button" class="toggle-password" id="togglePwd" onclick="togglePassword()">
                             <i class="fas fa-eye"></i>
                         </button>
-                        
                     </div>
                 </div>
 
-                <!-- ==================== -->
-                <!-- OPÇÕES               -->
-                <!-- ==================== -->
+                <!-- OPÇÕES -->
                 <div class="options-row">
                     <label class="remember-me">
                         <input type="checkbox" id="remember">
@@ -614,51 +493,19 @@
                     <a href="#" class="forgot-link" onclick="recoverPassword(event)">Esqueci a senha</a>
                 </div>
 
-                <!-- ==================== -->
-                <!-- BOTÃO DE LOGIN       -->
-                <!-- ==================== -->
+                <!-- BOTÃO -->
                 <button type="submit" class="btn-login">
                     <i class="fas fa-sign-in-alt"></i> Entrar
                 </button>
                 
             </form>
 
-            <!-- ==================== -->
-            <!-- DIVISOR              -->
-            <!-- ==================== -->
-            <div class="divider">ou continue com</div>
-
-            <!-- ==================== -->
-            <!-- LOGIN SOCIAL         -->
-            <!-- ==================== -->
-            <div class="social-buttons">
-                
-                <!-- 
-                ⚠️⚠️⚠️ BOTÃO GOOGLE ⚠️⚠️⚠️
-                -->
-                <button class="btn-social google" onclick="socialLogin('google')">
-                    <i class="fab fa-google"></i> Google
-                </button>
-                
-                <!-- 
-                ⚠️⚠️⚠️ BOTÃO APPLE ⚠️⚠️⚠️
-                -->
-                <button class="btn-social apple" onclick="socialLogin('apple')">
-                    <i class="fab fa-apple"></i> Apple
-                </button>
-                
-            </div>
-
-            <!-- ==================== -->
-            <!-- CRIAR CONTA          -->
-            <!-- ==================== -->
+            <!-- CRIAR CONTA -->
             <div class="create-account">
                 Não tem conta? <a href="#" onclick="createAccount(event)">Cadastre-se</a>
             </div>
 
-            <!-- ==================== -->
-            <!-- DICA DE TESTE        -->
-            <!-- ==================== -->
+            <!-- DICA -->
             <div class="test-hint">
                 <i class="fas fa-lightbulb"></i> Use: <code>teste@teste</code> / <code>1234</code>
             </div>
@@ -666,19 +513,10 @@
         </div>
     </div>
 
-    <!-- ==================== -->
-    <!-- SCRIPTS              -->
-    <!-- ==================== -->
     <script>
-        // ========================
-        // CREDENCIAIS DE TESTE
-        // ========================
         const TEST_EMAIL = 'teste@teste';
         const TEST_PASSWORD = '1234';
 
-        // ========================
-        // FUNÇÃO DE LOGIN
-        // ========================
         function handleLogin(event) {
             event.preventDefault();
 
@@ -687,26 +525,21 @@
             const messageBox = document.getElementById('messageBox');
             const btnLogin = document.querySelector('.btn-login');
 
-            // Reset
             messageBox.className = 'message';
             messageBox.style.display = 'none';
 
-            // Validação básica
             if (!email || !password) {
                 showMessage('<i class="fas fa-exclamation-triangle"></i> Preencha todos os campos!', 'error');
                 return;
             }
 
-            // Loading
             btnLogin.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Entrando...';
             btnLogin.style.opacity = '0.7';
 
-            // Simula verificação
             setTimeout(() => {
                 if (email === TEST_EMAIL && password === TEST_PASSWORD) {
                     showMessage('<i class="fas fa-check-circle"></i> Login realizado! Redirecionando...', 'success');
 
-                    // Salva sessão
                     const userData = {
                         name: 'Teste Usuário',
                         email: email,
@@ -715,12 +548,10 @@
                     };
                     localStorage.setItem('loggedUser', JSON.stringify(userData));
 
-                    // Salva lembrar
                     if (document.getElementById('remember').checked) {
                         localStorage.setItem('rememberedEmail', email);
                     }
 
-                    // Redireciona
                     setTimeout(() => {
                         window.location.href = 'dashboard.html';
                     }, 800);
@@ -735,9 +566,6 @@
             }, 600);
         }
 
-        // ========================
-        // MOSTRAR MENSAGEM
-        // ========================
         function showMessage(text, type) {
             const messageBox = document.getElementById('messageBox');
             messageBox.innerHTML = text;
@@ -745,25 +573,19 @@
             messageBox.style.display = 'block';
         }
 
-        // ========================
-        // MOSTRAR/OCULTAR SENHA
-        // ========================
         function togglePassword() {
             const pwd = document.getElementById('password');
             const icon = document.querySelector('#togglePwd i');
             
             if (pwd.type === 'password') {
                 pwd.type = 'text';
-                icon.className = 'fas fa-eye-slash'; // Ícone de "esconder"
+                icon.className = 'fas fa-eye-slash';
             } else {
                 pwd.type = 'password';
-                icon.className = 'fas fa-eye'; // Ícone de "mostrar"
+                icon.className = 'fas fa-eye';
             }
         }
 
-        // ========================
-        // RECUPERAR SENHA
-        // ========================
         function recoverPassword(event) {
             event.preventDefault();
             const email = document.getElementById('email').value.trim();
@@ -775,35 +597,17 @@
             }
         }
 
-        // ========================
-        // LOGIN SOCIAL
-        // ========================
-        function socialLogin(provider) {
-            const name = provider === 'google' ? 'Google' : 'Apple';
-            alert('🔐 Login com ' + name + ' simulado.\nEm produção, redirecionaria para autenticação.');
-        }
-
-        // ========================
-        // CRIAR CONTA
-        // ========================
         function createAccount(event) {
             event.preventDefault();
             alert('📝 Em produção, abriria formulário de cadastro.');
         }
 
-        // ========================
-        // PREENCHIMENTO RÁPIDO
-        // (Toque duplo no logo)
-        // ========================
         document.querySelector('.logo-icon').addEventListener('dblclick', function() {
             document.getElementById('email').value = TEST_EMAIL;
             document.getElementById('password').value = TEST_PASSWORD;
             showMessage('<i class="fas fa-key"></i> Credenciais preenchidas!', 'success');
         });
 
-        // ========================
-        // CARREGAR E-MAIL LEMBRADO
-        // ========================
         window.addEventListener('DOMContentLoaded', () => {
             const remembered = localStorage.getItem('rememberedEmail');
             if (remembered) {
@@ -812,9 +616,6 @@
             }
         });
 
-        // ========================
-        // PREVINE ZOOM NO iOS
-        // ========================
         document.addEventListener('gesturestart', (e) => e.preventDefault());
     </script>
 
