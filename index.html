@@ -379,7 +379,7 @@
         }
 
         /* ======================== */
-        /* RESPONSIVO TABLET/DESKTOP */
+        /* RESPONSIVO PC - TELA MAIOR */
         /* ======================== */
         @media (min-width: 768px) {
             body {
@@ -387,22 +387,161 @@
             }
 
             .login-container {
-                max-width: 440px;
+                max-width: 500px;
                 border-radius: 28px;
             }
 
+            /* Header maior */
             .login-header {
-                padding: 50px 30px 45px;
+                padding: 60px 40px 50px;
             }
 
+            .logo-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .logo-fallback {
+                font-size: 38px;
+            }
+
+            .logo-text h1 {
+                font-size: 30px;
+            }
+
+            .logo-text p {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+
+            .login-header h2 {
+                font-size: 26px;
+            }
+
+            .login-header .subtitle {
+                font-size: 15px;
+            }
+
+            /* Formulário maior */
             .login-form {
-                padding: 35px 30px 40px;
+                padding: 40px 36px 45px;
+            }
+
+            .benefits-strip {
+                padding: 20px 30px;
+                gap: 50px;
+            }
+
+            .benefit-item {
+                font-size: 14px;
+            }
+
+            .benefit-item i {
+                font-size: 18px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .form-group input {
+                padding: 17px 17px 17px 50px;
+                font-size: 16px;
+                border-radius: 16px;
+            }
+
+            .input-icon {
+                left: 16px;
+                font-size: 18px;
+            }
+
+            .toggle-password {
+                right: 16px;
+                font-size: 20px;
+            }
+
+            .btn-login {
+                padding: 18px;
+                font-size: 18px;
+                border-radius: 16px;
+                margin-bottom: 28px;
             }
 
             .btn-login:hover {
                 background: #1557b0;
                 transform: translateY(-2px);
                 box-shadow: 0 8px 25px rgba(26, 115, 232, 0.35);
+            }
+
+            .options-row {
+                font-size: 14px;
+                margin-bottom: 28px;
+            }
+
+            .remember-me input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+            }
+
+            .forgot-link {
+                font-size: 14px;
+            }
+
+            .create-account {
+                font-size: 16px;
+            }
+
+            .test-hint {
+                font-size: 13px;
+                padding: 14px;
+                margin-top: 20px;
+            }
+
+            .message {
+                font-size: 14px;
+                padding: 14px 18px;
+                margin-bottom: 24px;
+            }
+        }
+
+        /* ======================== */
+        /* TELAS GRANDES (DESKTOP)  */
+        /* ======================== */
+        @media (min-width: 1024px) {
+            .login-container {
+                max-width: 550px;
+            }
+
+            .login-header {
+                padding: 70px 50px 55px;
+            }
+
+            .logo-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .logo-text h1 {
+                font-size: 34px;
+            }
+
+            .login-header h2 {
+                font-size: 28px;
+            }
+
+            .login-form {
+                padding: 50px 45px 55px;
+            }
+
+            .form-group input {
+                padding: 20px 20px 20px 55px;
+                font-size: 17px;
+            }
+
+            .btn-login {
+                padding: 20px;
+                font-size: 19px;
             }
         }
     </style>
