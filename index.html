@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OrtopediaPro - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(26, 115, 232, 0.12);
+            width: 100%;
+            max-width: 420px;
+            overflow: hidden;
+        }
+
+        /* ======================== */
+        /* HEADER AZUL              */
+        /* ======================== */
+        .login-header {
+            background: linear-gradient(135deg, #1a73e8 0%, #4a9ff5 100%);
+            padding: 40px 24px 35px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .login-header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ⚠️ EMOJI DO LOGO - TROQUE AQUI ⚠️ */
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: white;
+            color: #1a73e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text h1 {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .logo-text p {
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            opacity: 0.9;
+            text-transform: uppercase;
+        }
+
+        .login-header h2 {
+            font-size: 22px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-header .subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ======================== */
+        /* BENEFÍCIOS               */
+        /* ======================== */
+        .benefits-strip {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 16px 20px;
+            background: #f8faff;
+            border-bottom: 1px solid #eef2ff;
+            flex-wrap: wrap;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .benefit-item .benefit-emoji {
+            font-size: 16px;
+        }
+
+        /* ======================== */
+        /* FORMULÁRIO               */
+        /* ======================== */
+        .login-form {
+            padding: 28px 24px 32px;
+        }
+
+        .message {
+            padding: 12px 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .message.error {
+            background: #fff0f0;
+            color: #d93025;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .message.success {
+            background: #e6f7ee;
+            color: #0d904f;
+            border: 1px solid #b7dfc5;
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #444;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+            letter-spacing: 0.3px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ⚠️ EMOJI DO ÍCONE DO CAMPO - TROQUE AQUI ⚠️ */
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            font-size: 18px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 15px 15px 44px;
+            border: 2px solid #e8ecf4;
+            border-radius: 14px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background: #fafbfd;
+            color: #333;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1a73e8;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .form-group input::placeholder {
+            color: #bbb;
+        }
+
+        /* ⚠️ EMOJI DO BOTÃO DE MOSTRAR SENHA - TROQUE AQUI ⚠️ */
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            cursor: pointer;
+            font-size: 20px;
+            user-select: none;
+            padding: 5px;
+        }
+
+        .options-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #1a73e8;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .forgot-link:active {
+            opacity: 0.7;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 22px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.25);
+        }
+
+        .btn-login:active {
+            background: #1557b0;
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #aaa;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e8e8e8;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .btn-social {
+            flex: 1;
+            padding: 14px 10px;
+            border: 2px solid #e8ecf4;
+            border-radius: 14px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        .btn-social:active {
+            background: #f5f7fa;
+            border-color: #1a73e8;
+            transform: scale(0.97);
+        }
+
+        .create-account {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .create-account a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .create-account a:active {
+            opacity: 0.7;
+        }
+
+        /* ======================== */
+        /* DICA DE TESTE            */
+        /* ======================== */
+        .test-hint {
+            text-align: center;
+            margin-top: 16px;
+            padding: 10px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            font-size: 11px;
+            color: #1a73e8;
+            font-weight: 500;
+        }
+
+        .test-hint code {
+            background: #dceeff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        /* ======================== */
+        /* RESPONSIVO TABLET/DESKTOP */
+        /* ======================== */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px;
+            }
+
+            .login-container {
+                max-width: 440px;
+                border-radius: 28px;
+            }
+
+            .login-header {
+                padding: 50px 30px 45px;
+            }
+
+            .login-form {
+                padding: 35px 30px 40px;
+            }
+
+            .btn-login:hover {
+                background: #1557b0;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(26, 115, 232, 0.35);
+            }
+
+            .btn-social:hover {
+                background: #f5f7fa;
+                border-color: #1a73e8;
+                transform: translateY(-2px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== -->
+    <!-- CONTAINER PRINCIPAL  -->
+    <!-- ==================== -->
+    <div class="login-container">
+
+        <!-- ======================== -->
+        <!-- HEADER COM LOGO E TEXTO  -->
+        <!-- ======================== -->
+        <div class="login-header">
+            <div class="logo-wrapper">
+                
+                <!-- 
+                ⚠️⚠️⚠️ EMOJI DO LOGO - TROQUE AQUI ⚠️⚠️⚠️
+                Opções: 🦴 🏥 💊 🩺 🦷 ❤️ 🏃 ⚕️ 🩻 🧬
+                -->
+                <div class="logo-icon">🦴</div>
+                
+                <div class="logo-text">
+                    <h1>OrtopediaPro</h1>
+                    <p>Clínica Especializada</p>
+                </div>
+            </div>
+            <h2>Bem-vindo de volta!</h2>
+            <p class="subtitle">Faça login para agendar consultas</p>
+        </div>
+
+        <!-- ======================== -->
+        <!-- BENEFÍCIOS              -->
+        <!-- ======================== -->
+        <div class="benefits-strip">
+            
+            <!-- 
+            ⚠️⚠️⚠️ EMOJIS DOS BENEFÍCIOS - TROQUE AQUI ⚠️⚠️⚠️
+            -->
+            <div class="benefit-item">
+                <span class="benefit-emoji">📅</span> Agendamento
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-emoji">👨‍⚕️</span> Especialistas
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-emoji">📱</span> Telemedicina
+            </div>
+            
+        </div>
+
+        <!-- ======================== -->
+        <!-- FORMULÁRIO DE LOGIN      -->
+        <!-- ======================== -->
+        <div class="login-form">
+            
+            <!-- Mensagem de erro/sucesso -->
+            <div class="message" id="messageBox"></div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                
+                <!-- ==================== -->
+                <!-- CAMPO DE E-MAIL      -->
+                <!-- ==================== -->
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <div class="input-wrapper">
+                        
+                        <!-- 
+                        ⚠️⚠️⚠️ EMOJI DO ÍCONE DE E-MAIL - TROQUE AQUI ⚠️⚠️⚠️
+                        Opções: 📧 ✉️ 📨 📩 💌 📬
+                        -->
+                        <span class="input-icon">📧</span>
+                        
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Digite seu e-mail" 
+                            required 
+                            autocomplete="email"
+                            inputmode="email"
+                        >
+                    </div>
+                </div>
+
+                <!-- ==================== -->
+                <!-- CAMPO DE SENHA       -->
+                <!-- ==================== -->
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="input-wrapper">
+                        
+                        <!-- 
+                        ⚠️⚠️⚠️ EMOJI DO ÍCONE DE SENHA - TROQUE AQUI ⚠️⚠️⚠️
+                        Opções: 🔒 🔐 🔑 🛡️ ⭐
+                        -->
+                        <span class="input-icon">🔒</span>
+                        
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Digite sua senha" 
+                            required 
+                            autocomplete="current-password"
+                        >
+                        
+                        <!-- 
+                        ⚠️⚠️⚠️ EMOJI DE MOSTRAR/OCULTAR SENHA - TROQUE AQUI ⚠️⚠️⚠️
+                        Opções: 👁️ 👀 🙈 🔍
+                        -->
+                        <span class="toggle-password" id="togglePwd" onclick="togglePassword()">👁️</span>
+                        
+                    </div>
+                </div>
+
+                <!-- ==================== -->
+                <!-- OPÇÕES               -->
+                <!-- ==================== -->
+                <div class="options-row">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        Lembrar
+                    </label>
+                    <a href="#" class="forgot-link" onclick="recoverPassword(event)">Esqueci a senha</a>
+                </div>
+
+                <!-- ==================== -->
+                <!-- BOTÃO DE LOGIN       -->
+                <!-- ==================== -->
+                <button type="submit" class="btn-login">Entrar</button>
+                
+            </form>
+
+            <!-- ==================== -->
+            <!-- DIVISOR              -->
+            <!-- ==================== -->
+            <div class="divider">ou continue com</div>
+
+            <!-- ==================== -->
+            <!-- LOGIN SOCIAL         -->
+            <!-- ==================== -->
+            <div class="social-buttons">
+                
+                <!-- 
+                ⚠️⚠️⚠️ BOTÃO GOOGLE - TROQUE O EMOJI/ÍCONE AQUI ⚠️⚠️⚠️
+                -->
+                <button class="btn-social" onclick="socialLogin('google')">
+                    <span style="color:#4285f4; font-size:20px;">G</span> Google
+                </button>
+                
+                <!-- 
+                ⚠️⚠️⚠️ BOTÃO APPLE - TROQUE O EMOJI/ÍCONE AQUI ⚠️⚠️⚠️
+                Opções: 🍎 
+                -->
+                <button class="btn-social" onclick="socialLogin('apple')">
+                    <span style="font-size:20px;">🍎</span> Apple
+                </button>
+                
+            </div>
+
+            <!-- ==================== -->
+            <!-- CRIAR CONTA          -->
+            <!-- ==================== -->
+            <div class="create-account">
+                Não tem conta? <a href="#" onclick="createAccount(event)">Cadastre-se</a>
+            </div>
+
+            <!-- ==================== -->
+            <!-- DICA DE TESTE        -->
+            <!-- ==================== -->
+            <div class="test-hint">
+                <!-- 
+                ⚠️⚠️⚠️ EMOJI DA DICA - TROQUE AQUI ⚠️⚠️⚠️
+                Opções: 💡 ⚡ 🔑 📌 ✨
+                -->
+                💡 Use: <code>teste@teste</code> / <code>1234</code>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- ==================== -->
+    <!-- SCRIPTS              -->
+    <!-- ==================== -->
+    <script>
+        // ========================
+        // CREDENCIAIS DE TESTE
+        // ========================
+        const TEST_EMAIL = 'teste@teste';
+        const TEST_PASSWORD = '1234';
+
+        // ========================
+        // FUNÇÃO DE LOGIN
+        // ========================
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const messageBox = document.getElementById('messageBox');
+            const btnLogin = document.querySelector('.btn-login');
+
+            // Reset
+            messageBox.className = 'message';
+            messageBox.style.display = 'none';
+
+            // Validação básica
+            if (!email || !password) {
+                showMessage('Preencha todos os campos!', 'error');
+                return;
+            }
+
+            // Loading
+            btnLogin.textContent = 'Entrando...';
+            btnLogin.style.opacity = '0.7';
+
+            // Simula verificação
+            setTimeout(() => {
+                if (email === TEST_EMAIL && password === TEST_PASSWORD) {
+                    showMessage('✅ Login realizado! Redirecionando...', 'success');
+
+                    // Salva sessão
+                    const userData = {
+                        name: 'Teste Usuário',
+                        email: email,
+                        firstLetter: 'T',
+                        loggedAt: new Date().toISOString()
+                    };
+                    localStorage.setItem('loggedUser', JSON.stringify(userData));
+
+                    // Salva lembrar
+                    if (document.getElementById('remember').checked) {
+                        localStorage.setItem('rememberedEmail', email);
+                    }
+
+                    // Redireciona
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 800);
+
+                } else {
+                    showMessage('E-mail ou senha incorretos', 'error');
+                    document.getElementById('password').value = '';
+                    document.getElementById('password').focus();
+                    btnLogin.textContent = 'Entrar';
+                    btnLogin.style.opacity = '1';
+                }
+            }, 600);
+        }
+
+        // ========================
+        // MOSTRAR MENSAGEM
+        // ========================
+        function showMessage(text, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            messageBox.className = 'message ' + type;
+            messageBox.style.display = 'block';
+        }
+
+        // ========================
+        // MOSTRAR/OCULTAR SENHA
+        // ========================
+        function togglePassword() {
+            const pwd = document.getElementById('password');
+            
+            // ⚠️⚠️⚠️ EMOJIS DE MOSTRAR/OCULTAR - TROQUE AQUI ⚠️⚠️⚠️
+            const icon = document.getElementById('togglePwd');
+            
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                icon.textContent = '🙈'; // EMOJI QUANDO SENHA VISÍVEL
+            } else {
+                pwd.type = 'password';
+                icon.textContent = '👁️'; // EMOJI QUANDO SENHA OCULTA
+            }
+        }
+
+        // ========================
+        // RECUPERAR SENHA
+        // ========================
+        function recoverPassword(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            
+            // ⚠️⚠️⚠️ EMOJI DO ALERTA - TROQUE AQUI ⚠️⚠️⚠️
+            if (email) {
+                alert('📧 Link de recuperação enviado para: ' + email);
+            } else {
+                alert('📧 Digite seu e-mail primeiro para recuperar a senha.');
+            }
+        }
+
+        // ========================
+        // LOGIN SOCIAL
+        // ========================
+        function socialLogin(provider) {
+            const name = provider === 'google' ? 'Google' : 'Apple';
+            
+            // ⚠️⚠️⚠️ EMOJI DO ALERTA - TROQUE AQUI ⚠️⚠️⚠️
+            alert('🔐 Login com ' + name + ' simulado.\nEm produção, redirecionaria para autenticação.');
+        }
+
+        // ========================
+        // CRIAR CONTA
+        // ========================
+        function createAccount(event) {
+            event.preventDefault();
+            
+            // ⚠️⚠️⚠️ EMOJI DO ALERTA - TROQUE AQUI ⚠️⚠️⚠️
+            alert('📝 Em produção, abriria formulário de cadastro.');
+        }
+
+        // ========================
+        // PREENCHIMENTO RÁPIDO
+        // (Toque duplo no logo)
+        // ========================
+        document.querySelector('.logo-icon').addEventListener('dblclick', function() {
+            document.getElementById('email').value = TEST_EMAIL;
+            document.getElementById('password').value = TEST_PASSWORD;
+            showMessage('🔑 Credenciais preenchidas!', 'success');
+        });
+
+        // ========================
+        // CARREGAR E-MAIL LEMBRADO
+        // ========================
+        window.addEventListener('DOMContentLoaded', () => {
+            const remembered = localStorage.getItem('rememberedEmail');
+            if (remembered) {
+                document.getElementById('email').value = remembered;
+                document.getElementById('remember').checked = true;
+            }
+        });
+
+        // ========================
+        // PREVINE ZOOM NO iOS
+        // ========================
+        document.addEventListener('gesturestart', (e) => e.preventDefault());
+    </script>
+
+</body>
+</html>
