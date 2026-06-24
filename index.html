@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>OrtopediaPro - Login</title>
+    
+    <!-- Font Awesome para ícones de email e senha -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -74,20 +78,41 @@
             z-index: 1;
         }
 
-        /* ⚠️ EMOJI DO LOGO - TROQUE AQUI ⚠️ */
+        /* ======================== */
+        /* LOGO COM IMAGEM          */
+        /* ======================== */
         .logo-icon {
             width: 56px;
             height: 56px;
             background: white;
-            color: #1a73e8;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            font-weight: bold;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             animation: pulse 2s infinite;
+            overflow: hidden; /* Garante que a imagem fique dentro do círculo */
+        }
+
+        /* ⚠️⚠️⚠️ IMAGEM DO LOGO - COLOQUE SUA FOTO AQUI ⚠️⚠️⚠️ */
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta a imagem para cobrir o círculo */
+        }
+
+        /* Fallback: se não carregar a imagem, mostra o emoji */
+        .logo-fallback {
+            font-size: 30px;
+            display: none;
+        }
+
+        .logo-icon img.error + .logo-fallback {
+            display: block;
+        }
+
+        .logo-icon img.error {
+            display: none;
         }
 
         @keyframes pulse {
@@ -124,7 +149,7 @@
         }
 
         /* ======================== */
-        /* BENEFÍCIOS               */
+        /* BENEFÍCIOS COM ÍCONES    */
         /* ======================== */
         .benefits-strip {
             display: flex;
@@ -145,8 +170,10 @@
             font-weight: 500;
         }
 
-        .benefit-item .benefit-emoji {
+        /* ⚠️⚠️⚠️ ÍCONES DOS BENEFÍCIOS - TROQUE PELAS CLASSES DO FONT AWESOME ⚠️⚠️⚠️ */
+        .benefit-item i {
             font-size: 16px;
+            color: #1a73e8;
         }
 
         /* ======================== */
@@ -210,13 +237,14 @@
             align-items: center;
         }
 
-        /* ⚠️ EMOJI DO ÍCONE DO CAMPO - TROQUE AQUI ⚠️ */
+        /* Ícones Font Awesome nos campos */
         .input-icon {
             position: absolute;
             left: 14px;
-            font-size: 18px;
+            font-size: 16px;
             z-index: 1;
             pointer-events: none;
+            color: #999;
         }
 
         .form-group input {
@@ -241,14 +269,20 @@
             color: #bbb;
         }
 
-        /* ⚠️ EMOJI DO BOTÃO DE MOSTRAR SENHA - TROQUE AQUI ⚠️ */
         .toggle-password {
             position: absolute;
             right: 14px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             user-select: none;
             padding: 5px;
+            color: #999;
+            border: none;
+            background: none;
+        }
+
+        .toggle-password:hover {
+            color: #1a73e8;
         }
 
         .options-row {
@@ -354,6 +388,17 @@
             transform: scale(0.97);
         }
 
+        /* ⚠️⚠️⚠️ ÍCONES GOOGLE E APPLE ⚠️⚠️⚠️ */
+        .btn-social.google i {
+            color: #4285f4;
+            font-size: 18px;
+        }
+
+        .btn-social.apple i {
+            color: #000;
+            font-size: 18px;
+        }
+
         .create-account {
             text-align: center;
             font-size: 14px;
@@ -389,6 +434,10 @@
             padding: 2px 8px;
             border-radius: 4px;
             font-weight: 700;
+        }
+
+        .test-hint i {
+            margin-right: 4px;
         }
 
         /* ======================== */
@@ -440,12 +489,26 @@
             <div class="logo-wrapper">
                 
                 <!-- 
-                ⚠️⚠️⚠️ EMOJI DO LOGO - TROQUE AQUI ⚠️⚠️⚠️
-                Opções: 🦴 🏥 💊 🩺 🦷 ❤️ 🏃 ⚕️ 🩻 🧬
+                ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+                IMAGEM DO LOGO - COLOQUE O NOME DO SEU ARQUIVO AQUI
+                ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+                
+                OPÇÕES:
+                1. Imagem local: src="imagens/logo.png"
+                2. URL do GitHub: src="https://SEU_USUARIO.github.io/repositorio/imagens/logo.png"
+                3. Link externo: src="https://exemplo.com/imagem.jpg"
                 -->
-                <div class="logo-icon">🦴</div>
+                <div class="logo-icon">
+                    <img 
+                        src="imagens/logo-clinica.png" 
+                        alt="Logo da Clínica"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                    >
+                    <span class="logo-fallback" style="display:none;">🦴</span>
+                </div>
                 
                 <div class="logo-text">
+                    <!-- ⚠️⚠️⚠️ NOME DA CLÍNICA - TROQUE AQUI ⚠️⚠️⚠️ -->
                     <h1>OrtopediaPro</h1>
                     <p>Clínica Especializada</p>
                 </div>
@@ -460,16 +523,17 @@
         <div class="benefits-strip">
             
             <!-- 
-            ⚠️⚠️⚠️ EMOJIS DOS BENEFÍCIOS - TROQUE AQUI ⚠️⚠️⚠️
+            ⚠️⚠️⚠️ ÍCONES DOS BENEFÍCIOS - TROQUE AQUI ⚠️⚠️⚠️
+            Use classes do Font Awesome: https://fontawesome.com/icons
             -->
             <div class="benefit-item">
-                <span class="benefit-emoji">📅</span> Agendamento
+                <i class="fas fa-calendar-check"></i> Agendamento
             </div>
             <div class="benefit-item">
-                <span class="benefit-emoji">👨‍⚕️</span> Especialistas
+                <i class="fas fa-user-md"></i> Especialistas
             </div>
             <div class="benefit-item">
-                <span class="benefit-emoji">📱</span> Telemedicina
+                <i class="fas fa-laptop-medical"></i> Telemedicina
             </div>
             
         </div>
@@ -492,10 +556,10 @@
                     <div class="input-wrapper">
                         
                         <!-- 
-                        ⚠️⚠️⚠️ EMOJI DO ÍCONE DE E-MAIL - TROQUE AQUI ⚠️⚠️⚠️
-                        Opções: 📧 ✉️ 📨 📩 💌 📬
+                        ⚠️⚠️⚠️ ÍCONE DE EMAIL - TROQUE A CLASSE AQUI ⚠️⚠️⚠️
+                        Opções: fa-envelope, fa-at, fa-inbox
                         -->
-                        <span class="input-icon">📧</span>
+                        <i class="fas fa-envelope input-icon"></i>
                         
                         <input 
                             type="email" 
@@ -516,10 +580,10 @@
                     <div class="input-wrapper">
                         
                         <!-- 
-                        ⚠️⚠️⚠️ EMOJI DO ÍCONE DE SENHA - TROQUE AQUI ⚠️⚠️⚠️
-                        Opções: 🔒 🔐 🔑 🛡️ ⭐
+                        ⚠️⚠️⚠️ ÍCONE DE SENHA - TROQUE A CLASSE AQUI ⚠️⚠️⚠️
+                        Opções: fa-lock, fa-key, fa-shield-alt
                         -->
-                        <span class="input-icon">🔒</span>
+                        <i class="fas fa-lock input-icon"></i>
                         
                         <input 
                             type="password" 
@@ -530,10 +594,11 @@
                         >
                         
                         <!-- 
-                        ⚠️⚠️⚠️ EMOJI DE MOSTRAR/OCULTAR SENHA - TROQUE AQUI ⚠️⚠️⚠️
-                        Opções: 👁️ 👀 🙈 🔍
+                        ⚠️⚠️⚠️ BOTÃO MOSTRAR/OCULTAR SENHA ⚠️⚠️⚠️
                         -->
-                        <span class="toggle-password" id="togglePwd" onclick="togglePassword()">👁️</span>
+                        <button type="button" class="toggle-password" id="togglePwd" onclick="togglePassword()">
+                            <i class="fas fa-eye"></i>
+                        </button>
                         
                     </div>
                 </div>
@@ -552,7 +617,9 @@
                 <!-- ==================== -->
                 <!-- BOTÃO DE LOGIN       -->
                 <!-- ==================== -->
-                <button type="submit" class="btn-login">Entrar</button>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
                 
             </form>
 
@@ -567,18 +634,17 @@
             <div class="social-buttons">
                 
                 <!-- 
-                ⚠️⚠️⚠️ BOTÃO GOOGLE - TROQUE O EMOJI/ÍCONE AQUI ⚠️⚠️⚠️
+                ⚠️⚠️⚠️ BOTÃO GOOGLE ⚠️⚠️⚠️
                 -->
-                <button class="btn-social" onclick="socialLogin('google')">
-                    <span style="color:#4285f4; font-size:20px;">G</span> Google
+                <button class="btn-social google" onclick="socialLogin('google')">
+                    <i class="fab fa-google"></i> Google
                 </button>
                 
                 <!-- 
-                ⚠️⚠️⚠️ BOTÃO APPLE - TROQUE O EMOJI/ÍCONE AQUI ⚠️⚠️⚠️
-                Opções: 🍎 
+                ⚠️⚠️⚠️ BOTÃO APPLE ⚠️⚠️⚠️
                 -->
-                <button class="btn-social" onclick="socialLogin('apple')">
-                    <span style="font-size:20px;">🍎</span> Apple
+                <button class="btn-social apple" onclick="socialLogin('apple')">
+                    <i class="fab fa-apple"></i> Apple
                 </button>
                 
             </div>
@@ -594,11 +660,7 @@
             <!-- DICA DE TESTE        -->
             <!-- ==================== -->
             <div class="test-hint">
-                <!-- 
-                ⚠️⚠️⚠️ EMOJI DA DICA - TROQUE AQUI ⚠️⚠️⚠️
-                Opções: 💡 ⚡ 🔑 📌 ✨
-                -->
-                💡 Use: <code>teste@teste</code> / <code>1234</code>
+                <i class="fas fa-lightbulb"></i> Use: <code>teste@teste</code> / <code>1234</code>
             </div>
             
         </div>
@@ -631,18 +693,18 @@
 
             // Validação básica
             if (!email || !password) {
-                showMessage('Preencha todos os campos!', 'error');
+                showMessage('<i class="fas fa-exclamation-triangle"></i> Preencha todos os campos!', 'error');
                 return;
             }
 
             // Loading
-            btnLogin.textContent = 'Entrando...';
+            btnLogin.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Entrando...';
             btnLogin.style.opacity = '0.7';
 
             // Simula verificação
             setTimeout(() => {
                 if (email === TEST_EMAIL && password === TEST_PASSWORD) {
-                    showMessage('✅ Login realizado! Redirecionando...', 'success');
+                    showMessage('<i class="fas fa-check-circle"></i> Login realizado! Redirecionando...', 'success');
 
                     // Salva sessão
                     const userData = {
@@ -664,10 +726,10 @@
                     }, 800);
 
                 } else {
-                    showMessage('E-mail ou senha incorretos', 'error');
+                    showMessage('<i class="fas fa-times-circle"></i> E-mail ou senha incorretos', 'error');
                     document.getElementById('password').value = '';
                     document.getElementById('password').focus();
-                    btnLogin.textContent = 'Entrar';
+                    btnLogin.innerHTML = '<i class="fas fa-sign-in-alt"></i> Entrar';
                     btnLogin.style.opacity = '1';
                 }
             }, 600);
@@ -678,7 +740,7 @@
         // ========================
         function showMessage(text, type) {
             const messageBox = document.getElementById('messageBox');
-            messageBox.textContent = text;
+            messageBox.innerHTML = text;
             messageBox.className = 'message ' + type;
             messageBox.style.display = 'block';
         }
@@ -688,16 +750,14 @@
         // ========================
         function togglePassword() {
             const pwd = document.getElementById('password');
-            
-            // ⚠️⚠️⚠️ EMOJIS DE MOSTRAR/OCULTAR - TROQUE AQUI ⚠️⚠️⚠️
-            const icon = document.getElementById('togglePwd');
+            const icon = document.querySelector('#togglePwd i');
             
             if (pwd.type === 'password') {
                 pwd.type = 'text';
-                icon.textContent = '🙈'; // EMOJI QUANDO SENHA VISÍVEL
+                icon.className = 'fas fa-eye-slash'; // Ícone de "esconder"
             } else {
                 pwd.type = 'password';
-                icon.textContent = '👁️'; // EMOJI QUANDO SENHA OCULTA
+                icon.className = 'fas fa-eye'; // Ícone de "mostrar"
             }
         }
 
@@ -708,7 +768,6 @@
             event.preventDefault();
             const email = document.getElementById('email').value.trim();
             
-            // ⚠️⚠️⚠️ EMOJI DO ALERTA - TROQUE AQUI ⚠️⚠️⚠️
             if (email) {
                 alert('📧 Link de recuperação enviado para: ' + email);
             } else {
@@ -721,8 +780,6 @@
         // ========================
         function socialLogin(provider) {
             const name = provider === 'google' ? 'Google' : 'Apple';
-            
-            // ⚠️⚠️⚠️ EMOJI DO ALERTA - TROQUE AQUI ⚠️⚠️⚠️
             alert('🔐 Login com ' + name + ' simulado.\nEm produção, redirecionaria para autenticação.');
         }
 
@@ -731,8 +788,6 @@
         // ========================
         function createAccount(event) {
             event.preventDefault();
-            
-            // ⚠️⚠️⚠️ EMOJI DO ALERTA - TROQUE AQUI ⚠️⚠️⚠️
             alert('📝 Em produção, abriria formulário de cadastro.');
         }
 
@@ -743,7 +798,7 @@
         document.querySelector('.logo-icon').addEventListener('dblclick', function() {
             document.getElementById('email').value = TEST_EMAIL;
             document.getElementById('password').value = TEST_PASSWORD;
-            showMessage('🔑 Credenciais preenchidas!', 'success');
+            showMessage('<i class="fas fa-key"></i> Credenciais preenchidas!', 'success');
         });
 
         // ========================
